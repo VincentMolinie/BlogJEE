@@ -25,7 +25,7 @@ public class CategoryController implements Serializable {
     private Category category = new Category();
 
 
-    public Category getCategory() {
+    public Category get() {
         int id = category.getId();
         category = new Category();
         return service.find(Category.class, category.getId());
@@ -36,17 +36,17 @@ public class CategoryController implements Serializable {
         return selectedCategory.getArticles();
     }
 
-    public void addCategory() throws IOException {
+    public void add() throws IOException {
         service.create(category);
         category = new Category();
     }
 
-    public void updateCategory() throws IOException {
+    public void update() throws IOException {
         service.update(category);
         category = new Category();
     }
 
-    public void deleteCategory() throws IOException {
+    public void delete() throws IOException {
         service.delete(category);
         category = new Category();
     }
