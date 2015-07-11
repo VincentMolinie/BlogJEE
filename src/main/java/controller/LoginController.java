@@ -13,6 +13,26 @@ public class LoginController {
     @Inject
     private Login login;
 
+    private String username;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    private String password;
+
     public Login getLogin() {
         return login;
     }
@@ -23,8 +43,8 @@ public class LoginController {
 
     public String login()
     {
-        System.out.println(login.getUsername());
-        return login.login(login.getUsername(), login.getPassword());
+        System.err.println(username);
+        return login.login(username, password);
     }
 
     public void logout()
