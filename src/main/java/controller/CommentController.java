@@ -3,14 +3,19 @@ package controller;
 import entity.Comment;
 import service.Service;
 
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Collection;
 
 /**
  * Created by vince on 7/11/15.
  */
-public class CommentController {
+@ViewScoped
+@Named("comment")
+public class CommentController implements Serializable {
     @Inject
     Service service;
 
@@ -18,6 +23,8 @@ public class CommentController {
 
 
     public Comment getComment() {
+        if (comment.getId() == null)
+            return null;
         int id = comment.getId();
         comment = new Comment();
         return service.find(Comment.class, comment.getId());

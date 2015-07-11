@@ -3,14 +3,19 @@ package controller;
 import entity.User;
 import service.Service;
 
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Collection;
 
 /**
  * Created by vince on 7/11/15.
  */
-public class UserController {
+@ViewScoped
+@Named("user")
+public class UserController implements Serializable {
     @Inject
     Service service;
 

@@ -71,9 +71,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-8">
-
-            <ui:repeat value="#{article.getAll}" var="art">
-
+            <c:forEach items="${article.getAll()}" var="art">
                 <!-- Blog Post Content Column -->
 
                 <!-- Blog Post -->
@@ -102,7 +100,7 @@
                 <!-- Blog Comments -->
 
                 <!-- Comments Form -->
-                <div class="well">
+                <!--div class="well">
                     <h4>Leave a Comment:</h4>
                     <h:form role="form">
                         <div class="form-group">
@@ -110,14 +108,14 @@
                         </div>
                         <h:commandButton value="Submit" type="submit" class="btn btn-primary"/>
                     </h:form>
-                </div>
+                </div-->
 
                 <hr></hr>
 
                 <!-- Posted Comments -->
 
                 <!-- Comment -->
-                <div class="media">
+                <!--div class="media">
                     <div class="media-body">
                         <ui:repeat value="${art.comments}" var="com">
                         <h4 class="media-heading">
@@ -126,9 +124,8 @@
                             ${com.content}
                         </ui:repeat>
                     </div>
-                </div>
-
-            </ui:repeat>
+                </div-->
+            </c:forEach>
         </div>
 
 
@@ -150,7 +147,7 @@
             </div>
 
             <!-- Blog Categories Well -->
-            <div class="well">
+            <!--div class="well">
                 <h4>Blog Categories</h4>
                 <div class="row">
                     <div class="col-lg-6">
@@ -161,8 +158,7 @@
                         </ul>
                     </div>
                 </div>
-                <!-- /.row -->
-            </div>
+            </div-->
         </div>
 
     </div>
