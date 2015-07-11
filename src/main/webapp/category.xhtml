@@ -36,9 +36,23 @@
 
                     <hr></hr>
 
-                    <!-- Comments Form -->
                     <div class="well">
-                        <h4>Leave a Comment:</h4>
+                        <h3><h:outputText value="Comments" rendered="#{not empty art.comments}" /></h3>
+                        <!-- Comment -->
+                        <div class="media">
+                            <div class="media-body">
+                                <ui:repeat value="${art.comments}" var="com">
+                                    <h4 class="media-heading">
+                                        <small>${com.date}</small>
+                                    </h4>
+                                    ${com.content}
+                                </ui:repeat>
+                            </div>
+                        </div>
+
+                        <!-- Comments Form -->
+
+                        <h3>Leave a Comment:</h3>
                         <h:form role="form">
                             <div class="form-group">
                                 <h:inputTextarea value="${comment.comment.content}" class="form-control" rows="3"></h:inputTextarea>
@@ -49,21 +63,9 @@
 
                     <hr></hr>
 
-                    <!-- Posted Comments -->
-                    <h3><h:outputText value="Comments" rendered="#{not empty art.comments}" /></h3>
-                    <!-- Comment -->
-                    <div class="media">
-                        <div class="media-body">
-                            <ui:repeat value="${art.comments}" var="com">
-                                <h4 class="media-heading">
-                                    <small>${com.date}</small>
-                                </h4>
-                                ${com.content}
-                            </ui:repeat>
-                        </div>
-                    </div>
                 </ui:repeat>
             </div>
+
 
 
             <!-- Blog Sidebar Widgets Column -->

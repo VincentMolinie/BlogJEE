@@ -34,19 +34,7 @@
 
                     <hr></hr>
 
-                    <!-- Comments Form -->
                     <div class="well">
-                        <h4>Leave a Comment:</h4>
-                        <h:form role="form">
-                            <div class="form-group">
-                                <h:inputTextarea value="${comment.comment.content}" class="form-control" rows="3"></h:inputTextarea>
-                            </div>
-                            <h:commandButton value="Submit" type="submit" class="btn btn-primary" action="${comment.add(art.id)}"/>
-                        </h:form>
-                    </div>
-
-                    <hr></hr>
-
                     <h3><h:outputText value="Comments" rendered="#{not empty art.comments}" /></h3>
                     <!-- Comment -->
                     <div class="media">
@@ -59,6 +47,19 @@
                             </ui:repeat>
                         </div>
                     </div>
+
+                    <!-- Comments Form -->
+
+                        <h3>Leave a Comment:</h3>
+                        <h:form role="form">
+                            <div class="form-group">
+                                <h:inputTextarea value="${comment.comment.content}" class="form-control" rows="3"></h:inputTextarea>
+                            </div>
+                            <h:commandButton value="Submit" type="submit" class="btn btn-primary" action="${comment.add(art.id)}"/>
+                        </h:form>
+                    </div>
+
+                    <hr></hr>
 
                 </ui:repeat>
             </div>
