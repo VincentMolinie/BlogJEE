@@ -1,181 +1,113 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://java.sun.com/jsp/jstl/core"
-      xml:lang="en"
-      lang="en">
+<ui:composition template="template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<head>
+    <ui:define name="title">
+        Category
+    </ui:define>
 
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
+    <ui:define name="content">
 
-    <title>blogJEE</title>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-8">
+                <ui:repeat value="${category.getArticles(param['id'])}" var="art">
+                    <!-- Blog Post Content Column -->
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+                    <!-- Blog Post -->
 
-    <!-- Custom CSS -->
-    <link href="css/blog-post.css" rel="stylesheet"/>
+                    <!-- Title -->
+                    <h1>${art.title}</h1>
 
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+                    <!-- Author -->
+                    <p class="lead">
+                        Posted by ${art.user.username}
+                    </p>
 
-</head>
+                    <hr></hr>
 
-<body>
-
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <h:link class="navbar-brand" value="blogJEE" outcome="index" />
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <h:link value="add a post" outcome="postArticle" />
-                </li>
-                <li>
-                    <h:link value="add a category" outcome="postCategory" />
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-<!-- Page Content -->
-<div class="container">
-
-    <!-- /.row -->
-    <div class="row">
-        <div class="col-lg-8">
-            <ui:repeat value="${category.getArticles(param['id'])}" var="art">
-                <!-- Blog Post Content Column -->
-
-                <!-- Blog Post -->
-
-                <!-- Title -->
-                <h1>${art.title}</h1>
-
-                <!-- Author -->
-                <p class="lead">
-                    Posted by ${art.user.username}
-                </p>
-
-                <hr></hr>
-
-                <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Posted on ${art.date}</p>
+                    <!-- Date/Time -->
+                    <p><span class="glyphicon glyphicon-time"></span> Posted on ${art.date}</p>
 
 
-                <hr></hr>
+                    <hr></hr>
 
-                <!-- Post Content -->
-                <p>${art.content}</p>
+                    <!-- Post Content -->
+                    <p>${art.content}</p>
 
-                <hr></hr>
+                    <hr></hr>
 
-                <!-- Blog Comments -->
+                    <!-- Blog Comments -->
 
-                <!-- Comments Form -->
-                <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <h:form role="form">
-                        <div class="form-group">
-                            <h:inputTextarea value="${comment.comment.content}" class="form-control" rows="3"></h:inputTextarea>
-                        </div>
-                        <h:commandButton value="Submit" type="submit" class="btn btn-primary" action="${comment.add(art.id)}"/>
-                    </h:form>
-                </div>
-
-                <hr></hr>
-
-                <!-- Posted Comments -->
-
-                <!-- Comment -->
-                <div class="media">
-                    <div class="media-body">
-                        <ui:repeat value="${art.comments}" var="com">
-                        <h4 class="media-heading">
-                            <small>${com.date}</small>
-                        </h4>
-                            ${com.content}
-                        </ui:repeat>
+                    <!-- Comments Form -->
+                    <div class="well">
+                        <h4>Leave a Comment:</h4>
+                        <h:form role="form">
+                            <div class="form-group">
+                                <h:inputTextarea value="${comment.comment.content}" class="form-control" rows="3"></h:inputTextarea>
+                            </div>
+                            <h:commandButton value="Submit" type="submit" class="btn btn-primary" action="${comment.add(art.id)}"/>
+                        </h:form>
                     </div>
-                </div>
-            </ui:repeat>
-        </div>
+
+                    <hr></hr>
+
+                    <!-- Posted Comments -->
+
+                    <!-- Comment -->
+                    <div class="media">
+                        <div class="media-body">
+                            <ui:repeat value="${art.comments}" var="com">
+                                <h4 class="media-heading">
+                                    <small>${com.date}</small>
+                                </h4>
+                                ${com.content}
+                            </ui:repeat>
+                        </div>
+                    </div>
+                </ui:repeat>
+            </div>
 
 
-        <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4">
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
 
-            <!-- Blog Search Well -->
-            <div class="well">
-                <h4>Blog Search</h4>
-                <div class="input-group">
-                    <input type="text" class="form-control"/>
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control"/>
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                         </span>
+                    </div>
+                    <!-- /.input-group -->
                 </div>
-                <!-- /.input-group -->
-            </div>
 
-            <!-- Blog Categories Well -->
-            <div class="well">
-                <h4>Blog Categories</h4>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <ui:repeat value="${category.getAll()}" var="cat">
-                                <li>
-                                    <h:outputLink value="category.xhtml">
-                                        <h:outputText value="${cat.name}" />
-                                        <f:param name="id" value="${cat.id}" />
-                                    </h:outputLink>
-                                </li>
-                            </ui:repeat>
-                        </ul>
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <ui:repeat value="${category.getAll()}" var="cat">
+                                    <li>
+                                        <h:outputLink value="category.xhtml">
+                                            <h:outputText value="${cat.name}" />
+                                            <f:param name="id" value="${cat.id}" />
+                                        </h:outputLink>
+                                    </li>
+                                </ui:repeat>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
-    </div>
-
-</div>
-<!-- /.container -->
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+    </ui:define>
+</ui:composition>
