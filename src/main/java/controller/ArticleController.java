@@ -23,7 +23,7 @@ public class ArticleController implements Serializable {
     @Inject
     Service service;
 
-    private Integer userid;
+    private Integer userid = new Integer(1);
     private Article article = new Article();
 
 
@@ -53,5 +53,9 @@ public class ArticleController implements Serializable {
 
     public Collection<Article> getAll() {
         return service.findAll(Article.class);
+    }
+
+    public Integer getUserid() {
+        return userid;
     }
 }
