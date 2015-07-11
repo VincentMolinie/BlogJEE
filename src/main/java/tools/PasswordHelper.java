@@ -11,13 +11,22 @@ import java.security.NoSuchAlgorithmException;
  */
 public class PasswordHelper {
     public String generate(String input) throws HashGenerateException {
+        String hash = null;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
             byte[] hashInput = messageDigest.digest(input.getBytes("UTF-8"));
 
-            return Hex.encodeHexString(hashInput);
+            hash = Hex.encodeHexString(hashInput);
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException e)
         {
-            throw new HashGenerateException("Hash could not be generated!", e);        }
+            throw new HashGenerateException("Hash could not be generated!", e);
+        }
+        return hash;
+    }
+
+    public Boolean compareHash(String input, String hashedInput) throws HashGenerateException {
+        String hInput = generate(input);
+
+        return (hInput != null && hInput.equals(hashedInput));
     }
 }
