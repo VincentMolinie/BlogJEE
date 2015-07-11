@@ -2,6 +2,7 @@ package controller;
 
 
 import entity.Article;
+import entity.User;
 import service.Service;
 
 import javax.faces.view.ViewScoped;
@@ -20,6 +21,7 @@ public class ArticleController implements Serializable {
     @Inject
     Service service;
 
+    private Integer userid;
     private Article article = new Article();
 
 
@@ -30,6 +32,8 @@ public class ArticleController implements Serializable {
     }
 
     public void addArticle() throws IOException {
+        User user = service.find(User.class, userid);
+        article.setUser(user);
         service.create(article);
         article = new Article();
     }
