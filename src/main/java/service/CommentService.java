@@ -1,5 +1,7 @@
 package service;
 
+import entity.Comment;
+
 import javax.ws.rs.*;
 import java.util.List;
 
@@ -8,37 +10,37 @@ import java.util.List;
  */
 public class CommentService extends AbstractService {
     @GET
-    @Path("/read/{messageId}")
+    @Path("/read/{commentId}")
     @Produces("application/json")
-    public CommentService find(@PathParam("messageId") Integer id) {
-        return dao.find(CommentService.class, id);
+    public Comment find(@PathParam("commentId") Integer id) {
+        return dao.find(Comment.class, id);
     }
 
     @POST
     @Path("/update")
     @Consumes("application/json")
-    public CommentService update(CommentService message) {
-        return dao.update(message);
+    public Comment update(Comment comment) {
+        return dao.update(comment);
     }
 
     @GET
     @Path("/read/all")
     @Produces("application/json")
-    public List<CommentService> findAll() {
-        return dao.findAll(CommentService.class);
+    public List<Comment> findAll() {
+        return dao.findAll(Comment.class);
     }
 
     @PUT
     @Path("/write")
     @Consumes("application/json")
-    public CommentService create(CommentService message) {
-        return dao.create(message);
+    public Comment create(Comment comment) {
+        return dao.create(comment);
     }
 
     @DELETE
-    @Path("/del/{messageId}")
-    public void delete(@PathParam("messageId") Integer id) {
-        CommentService message = find(id);
-        dao.delete(message);
+    @Path("/del/{commentId}")
+    public void delete(@PathParam("commentId") Integer id) {
+        Comment comment = find(id);
+        dao.delete(comment);
     }
 }

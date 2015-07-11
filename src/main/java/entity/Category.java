@@ -23,6 +23,6 @@ public class Category implements Model {
     private String name;
 
     @XmlTransient
-    @OneToMany(mappedBy = "category_id")
+    @OneToMany(mappedBy = "category")
     private List<Article> articles;
 }

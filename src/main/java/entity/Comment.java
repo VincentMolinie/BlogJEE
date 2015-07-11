@@ -24,10 +24,10 @@ public class Comment implements Model {
     private Date date;
 
     @ManyToOne()
-    @JoinColumn(name = "user_id", foreignKey = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
     @ManyToOne()
-    @JoinColumn(name = "article_id", foreignKey = "id")
+    @JoinColumn(name = "article_id", referencedColumnName = "id")
     private Article article;
 
 }
