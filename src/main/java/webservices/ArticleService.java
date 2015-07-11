@@ -1,7 +1,6 @@
 package webservices;
 
 import entity.Article;
-import entity.User;
 import org.codehaus.jackson.map.ObjectMapper;
 import service.Service;
 
@@ -56,8 +55,6 @@ public class ArticleService {
         return "OK";
     }
 
-    @GET
-    @Path("/all")
     public Collection<Article> getAllArticles(@Context final HttpServletRequest request) {
         return service.findAll(Article.class);
     }

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by vince on 7/11/15.
  */
 @ViewScoped
-@Named("login")
+@Named("yooo")
 public class AuthenticationController {
     @Inject
     private Service service;

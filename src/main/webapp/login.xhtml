@@ -17,15 +17,17 @@
                     </div>
                     <div class="control-group">
                         <label class="control-label">Email address</label>
-                        <h:inputText type="email" id="inputEmail" class="form-control" placeholder="Email address" />
+                        <h:inputText type="email" id="inputEmail" class="form-control" placeholder="Email address" value="${login.login.username}" />
                     </div>
                     <div class="control-group">
                         <label class="control-label">Password</label>
-                        <h:inputText type="password" id="inputPassword" class="form-control" placeholder="Password"/>
+                        <h:inputText type="password" id="inputPassword" class="form-control" placeholder="Password" value="${login.login.password}"/>
                     </div>
                     <div class="control-group">
                         <div class="controls">
-                            <h:commandButton class="btn btn-primary form-control" type="submit" value="Sign in" action="index"></h:commandButton>
+                            <h:commandButton class="btn btn-primary form-control" type="submit" value="Sign in" action="index">
+                                <f:actionListener binding="${login.login()}" />
+                            </h:commandButton>
                         </div>
                     </div>
                 </fieldset>
