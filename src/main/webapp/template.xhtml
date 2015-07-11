@@ -64,17 +64,11 @@
             <ul class="nav navbar-nav navbar-right">
                 <h:form>
                     <c:if test="${empty sessionScope.username}">
-                        <li>
-                            <h:link value="Login" outcome="login" />
-                        </li>
-                        <li>
-                            <h:link value="Register" outcome="register" />
-                        </li>
+                            <h:link value="Login" outcome="login" class="btn btn-link" />
+                            <h:link value="Register" outcome="register" class="btn btn-link" />
                     </c:if>
                     <c:if test="${not empty sessionScope.username}">
-                        <li>
                             <h:commandButton value="Logout" action="#{login.logout}" class="btn btn-link" />
-                        </li>
                     </c:if>
                 </h:form>
 
