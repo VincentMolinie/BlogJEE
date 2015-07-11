@@ -2,6 +2,8 @@ package controller;
 
 import entity.User;
 import service.Service;
+import tools.HashGenerateException;
+import tools.PasswordHelper;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -32,10 +34,12 @@ public class UserController implements Serializable {
     public User get() {
         int id = user.getId();
         user = new User();
-        return service.find(User.class, user.getId());
+        return service.find(User.class, id);
     }
 
-    public void add() throws IOException {
+
+    public void add() throws IOException, HashGenerateException {
+        user.setPassword(PasswordHelper.generate(user.getPassword()));
         service.create(user);
         user = new User();
     }
