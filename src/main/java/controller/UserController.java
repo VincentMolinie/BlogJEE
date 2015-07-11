@@ -2,6 +2,7 @@ package controller;
 
 import entity.User;
 import service.Service;
+import tools.PasswordHelper;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -37,10 +38,12 @@ public class UserController implements Serializable {
 
     public void add() throws IOException {
         try {
+            user.setPassword(PasswordHelper.generate(user.getPassword()));
             service.create(user);
         } catch (Exception e) {
 
         }
+
         user = new User();
     }
 

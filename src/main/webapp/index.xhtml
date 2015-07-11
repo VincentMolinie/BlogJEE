@@ -13,7 +13,7 @@
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-8">
-                <ui:repeat value="${article.getAll()}" var="art">
+                <c:forEach items="${article.getAll()}" var="art">
                     <!-- Title -->
                     <h1 class="post-title">${art.title}</h1>
 
@@ -39,12 +39,12 @@
                     <!-- Comment -->
                     <div class="media">
                         <div class="media-body">
-                            <ui:repeat value="${art.comments}" var="com">
+                            <c:forEach items="${art.comments}" var="com">
                                 <h4 class="media-heading">
                                     <small>${com.date}</small>
                                 </h4>
                                 ${com.content}
-                            </ui:repeat>
+                            </c:forEach>
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@
 
                     <hr></hr>
 
-                </ui:repeat>
+                </c:forEach>
             </div>
 
 
