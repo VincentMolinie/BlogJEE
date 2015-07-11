@@ -19,7 +19,7 @@ import java.util.Set;
 @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-@Table(name = "user")
+@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
 public class User implements Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
