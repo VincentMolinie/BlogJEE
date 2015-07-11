@@ -96,6 +96,11 @@
                                    value="${article.article.title}"/>
                         </div>
                     </div>
+                    <h:selectOneMenu value="${article.categoryid}">
+                        <c:forEach items="${category.getAll()}" var="cat">
+                            <f:selectItem itemValue="${cat.id}" itemLabel="${cat.name}"/>
+                        </c:forEach>
+                    </h:selectOneMenu>
                     <div class="form-group">
                         <label for="content">Content </label>
                                 <h:inputTextarea class="form-control"
