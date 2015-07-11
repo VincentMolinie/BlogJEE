@@ -66,54 +66,16 @@
 </nav>
 <!-- Page Content -->
 <div class="container">
-
-    <div class="row">
-
-        <!-- Blog Post Content Column -->
-        <div class="col-lg-8">
-
-            <!-- Blog Post -->
-
-            <!-- Title -->
-            <h1>Post an article</h1>
-
-            <!-- Comments Form -->
-            <h:form>
-                <fieldset>
-                    <legend>Article information:</legend>
-                    <div class="form-group row">
-                        <div class="col-md-4">
-                            <input type="hidden" class="form-control"
-                                   id="username" placeholder="Please enter username"
-                                   value="${article.userid}"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-6">
-                            <label for="title">Title </label>
-                            <input type="text" class="form-control"
-                                   id="title" placeholder="Please enter title"
-                                   value="${article.article.title}"/>
-                        </div>
-                    </div>
-                    <h:selectOneMenu value="${article.categoryid}">
-                        <c:forEach items="${category.getAll()}" var="cat">
-                            <f:selectItem itemValue="${cat.id}" itemLabel="${cat.name}"/>
-                        </c:forEach>
-                    </h:selectOneMenu>
-                    <div class="form-group">
-                        <label for="content">Content </label>
-                                <h:inputTextarea class="form-control"
-                                                 id="content"
-                                                 placeholder="Please enter article content"
-                                        value="${article.article.content}"></h:inputTextarea>
-                    </div>
-                    <h:commandButton type="submit" class="btn btn-default" value="Submit" action="${article.add}"></h:commandButton>
-                </fieldset>
-            </h:form>
-            <hr></hr>
+        <div class="col-md-4 col-md-offset-4">
+            <form class="form-signin">
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" />
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
         </div>
-    </div>
 </div>
 
 <!-- jQuery -->
