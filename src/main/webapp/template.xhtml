@@ -66,17 +66,16 @@
                     <li>
                         <h:link value="Login" outcome="login" />
                     </li>
+                    <li>
+                        <h:link value="Register" outcome="register" />
+                    </li>
                 </c:if>
                 <c:if test="${not empty sessionScope.username}">
                     <li>
-                        <h:form>
-                        <h:commandButton value="Logout" action="${login.logout()}"/>
-                        </h:form>
+                        <h:commandButton value="Logout" action="login.logout()" class="btn btn-link" />
                     </li>
                 </c:if>
-                <li>
-                    <h:link value="Register" outcome="register" />
-                </li>
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->
