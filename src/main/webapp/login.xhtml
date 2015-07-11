@@ -19,12 +19,14 @@
                         <label class="control-label">Username</label>
                         <h:inputText value="${login.username}" type="text" id="inputEmail" class="form-control" placeholder="Username">
                             <f:validateRequired/>
+                            <f:validateLength minimum="5"/>
                         </h:inputText>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Password</label>
                         <h:inputSecret value="${login.password}" type="password" id="inputPassword" class="form-control" placeholder="Password">
                             <f:validateRequired/>
+                            <f:validateLength minimum="5"/>
                         </h:inputSecret>
                     </div>
                     <div class="control-group">

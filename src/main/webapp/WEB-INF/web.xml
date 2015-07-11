@@ -12,6 +12,7 @@
     <filter-mapping>
         <filter-name>AuthFilter</filter-name>
         <url-pattern>/postArticle.xhtml</url-pattern>
+        <url-pattern>/postCategory.xhtml</url-pattern>
     </filter-mapping>
 
     <welcome-file-list>

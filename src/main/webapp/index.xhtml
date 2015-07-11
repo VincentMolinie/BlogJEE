@@ -53,7 +53,9 @@
                         <h3>Leave a Comment:</h3>
                         <h:form role="form">
                             <div class="form-group">
-                                <h:inputTextarea value="${comment.comment.content}" class="form-control" rows="3"></h:inputTextarea>
+                                <h:inputTextarea value="${comment.comment.content}" class="form-control" rows="3">
+                                    <f:validateLength minimum="5"/>
+                                </h:inputTextarea>
                             </div>
                             <h:commandButton value="Submit" type="submit" class="btn btn-primary" action="${comment.add(art.id)}"/>
                         </h:form>

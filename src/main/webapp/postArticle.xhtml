@@ -32,7 +32,9 @@
                                 <label for="title">Title </label>
                                 <h:inputText type="text" class="form-control"
                                              id="title" placeholder="Please enter title"
-                                             value="${article.article.title}"/>
+                                             value="${article.article.title}">
+                                    <f:validateLength minimum="4"/>
+                                </h:inputText>
                             </div>
                         </div>
                         <div class="form-group">
@@ -48,7 +50,9 @@
                             <h:inputTextarea class="form-control"
                                              id="content"
                                              placeholder="Please enter article content"
-                                             value="${article.article.content}"></h:inputTextarea>
+                                             value="${article.article.content}">
+                                <f:validateLength minimum="5"/>
+                            </h:inputTextarea>
                         </div>
                         <h:commandButton type="submit" class="btn btn-default" value="Submit" action="index">
                             <f:actionListener binding="#{article.add()}" />

@@ -25,8 +25,10 @@
                             <div class="col-md-6">
                                 <label for="title">Title </label>
                                 <h:inputText type="text" class="form-control"
-                                             id="title" placeholder="Please enter title"
-                                             value="${category.category.name}"/>
+                                             id="title" placeholder="Please enter the category name"
+                                             value="${category.category.name}">
+                                    <f:validateLength minimum="4"/>
+                                </h:inputText>
                             </div>
                         </div>
                         <h:commandButton type="submit"
