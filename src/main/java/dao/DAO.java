@@ -15,7 +15,7 @@ import java.util.List;
 @ApplicationScoped
 public class DAO {
     @PersistenceContext(unitName = "jpaUnit")
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
 
     @Logged
     public <BEAN extends Model> BEAN find(final Class<BEAN> clazz, final Integer id) {
@@ -48,4 +48,5 @@ public class DAO {
     public <BEAN extends Model> void delete(final BEAN bean) {
         entityManager.remove(bean);
     }
+
 }
