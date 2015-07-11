@@ -36,7 +36,11 @@ public class UserController implements Serializable {
     }
 
     public void add() throws IOException {
-        service.create(user);
+        try {
+            service.create(user);
+        } catch (Exception e) {
+
+        }
         user = new User();
     }
 
