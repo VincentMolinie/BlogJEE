@@ -9,7 +9,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by vince on 7/11/15.
@@ -40,5 +43,9 @@ public class Article implements Model {
 
     @XmlTransient
     @OneToMany(mappedBy = "article", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Comment> comments;
+    private Set<Comment> comments;
+
+    public Collection<Comment> getComments() {
+        return new ArrayList<>(comments);
+    }
 }

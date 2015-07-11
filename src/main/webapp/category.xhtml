@@ -5,14 +5,19 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <ui:define name="title">
-        Home
+        Category
     </ui:define>
 
     <ui:define name="content">
+
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-8">
-                <ui:repeat value="${article.getAll()}" var="art">
+                <ui:repeat value="${category.getArticles(param['id'])}" var="art">
+                    <!-- Blog Post Content Column -->
+
+                    <!-- Blog Post -->
+
                     <!-- Title -->
                     <h1>${art.title}</h1>
 
