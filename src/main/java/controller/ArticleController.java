@@ -12,8 +12,10 @@ import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * Created by vince on 7/11/15.
@@ -75,7 +77,8 @@ public class ArticleController implements Serializable {
     }
 
     public Collection<Article> getAll() {
-        return service.findAll(Article.class);
+        Collection<Article> articles = new ArrayList<>(new HashSet<>(service.findAll(Article.class)));
+        return articles;
     }
 
     public Integer getUserid() {
