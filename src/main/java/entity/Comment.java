@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import java.sql.Date;
 
 /**
@@ -11,6 +13,7 @@ import java.sql.Date;
  */
 @Getter
 @Setter
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "comment")
 public class Comment implements Model {
