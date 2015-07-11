@@ -4,14 +4,12 @@ import entity.Article;
 import entity.Category;
 import service.Service;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by vince on 7/11/15.

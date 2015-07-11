@@ -16,17 +16,21 @@
                         <legend class="">Please sign in</legend>
                     </div>
                     <div class="control-group">
-                        <label class="control-label">Email address</label>
-                        <h:inputText type="email" id="inputEmail" class="form-control" placeholder="Email address" value="${login.login.username}" />
+                        <label class="control-label">Username</label>
+                        <h:inputText value="${login.username}" type="text" id="inputEmail" class="form-control" placeholder="Username">
+                            <f:validateRequired/>
+                        </h:inputText>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Password</label>
-                        <h:inputText type="password" id="inputPassword" class="form-control" placeholder="Password" value="${login.login.password}"/>
+                        <h:inputSecret value="${login.password}" type="password" id="inputPassword" class="form-control" placeholder="Password">
+                            <f:validateRequired/>
+                        </h:inputSecret>
                     </div>
                     <div class="control-group">
                         <div class="controls">
                             <h:commandButton class="btn btn-primary form-control" type="submit" value="Sign in" action="index">
-                                <f:actionListener binding="${login.login()}" />
+                                <f:actionListener binding="${login.SignIn()}" />
                             </h:commandButton>
                         </div>
                     </div>
