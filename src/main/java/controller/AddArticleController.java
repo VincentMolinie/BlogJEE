@@ -1,4 +1,4 @@
-package main.java.controller;
+package controller;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
