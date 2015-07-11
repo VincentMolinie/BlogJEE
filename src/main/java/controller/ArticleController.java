@@ -25,25 +25,25 @@ public class ArticleController implements Serializable {
     private Article article = new Article();
 
 
-    public Article getArticle() {
+    public Article get() {
         int id = article.getId();
         article = new Article();
         return service.find(Article.class, article.getId());
     }
 
-    public void addArticle() throws IOException {
+    public void add() throws IOException {
         User user = service.find(User.class, userid);
         article.setUser(user);
         service.create(article);
         article = new Article();
     }
 
-    public void updateArticle() throws IOException {
+    public void update() throws IOException {
         service.update(article);
         article = new Article();
     }
 
-    public void deleteArticle() throws IOException {
+    public void delete() throws IOException {
         service.delete(article);
         article = new Article();
     }

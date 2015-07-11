@@ -22,7 +22,7 @@ public class CommentController implements Serializable {
     private Comment comment = new Comment();
 
 
-    public Comment getComment() {
+    public Comment get() {
         if (comment.getId() == null)
             return null;
         int id = comment.getId();
@@ -30,17 +30,17 @@ public class CommentController implements Serializable {
         return service.find(Comment.class, comment.getId());
     }
 
-    public void addComment() throws IOException {
+    public void add() throws IOException {
         service.create(comment);
         comment = new Comment();
     }
 
-    public void updateComment() throws IOException {
+    public void update() throws IOException {
         service.update(comment);
         comment = new Comment();
     }
 
-    public void deleteComment() throws IOException {
+    public void delete() throws IOException {
         service.delete(comment);
         comment = new Comment();
     }

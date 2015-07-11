@@ -21,23 +21,23 @@ public class UserController implements Serializable {
 
     private User user = new User();
 
-    public User getUser() {
+    public User get() {
         int id = user.getId();
         user = new User();
         return service.find(User.class, user.getId());
     }
 
-    public void addUser() throws IOException {
+    public void add() throws IOException {
         service.create(user);
         user = new User();
     }
 
-    public void updateUser() throws IOException {
+    public void update() throws IOException {
         service.update(user);
         user = new User();
     }
 
-    public void deleteUser() throws IOException {
+    public void delete() throws IOException {
         service.delete(user);
         user = new User();
     }
