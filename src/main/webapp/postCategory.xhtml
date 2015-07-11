@@ -31,7 +31,9 @@
                         </div>
                         <h:commandButton type="submit"
                                          class="btn btn-default" value="Submit"
-                                         action="${category.add()}"/>
+                                         action="index">
+                            <f:actionListener binding="#{category.add()}" />
+                        </h:commandButton>
                     </fieldset>
                 </h:form>
                 <hr></hr>
