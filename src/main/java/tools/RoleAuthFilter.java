@@ -30,7 +30,7 @@ public class RoleAuthFilter implements Filter {
 
             String requestUri = httpRequest.getRequestURI();
 
-            if (requestUri.indexOf("/login.xhtml") >= 0
+            if (requestUri.contains("/login.xhtml")
                 || (session != null && session.getAttribute("username") != null))
                 chain.doFilter(request, response);
             else
