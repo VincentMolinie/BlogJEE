@@ -32,13 +32,13 @@ public class Article implements Model {
     private Date date;
 
     @ManyToOne()
-    @JoinColumn(name = "user_id", foreignKey = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
     @ManyToOne()
-    @JoinColumn(name = "category_id", foreignKey = "id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
     @XmlTransient
-    @OneToMany(mappedBy = "article_id")
+    @OneToMany(mappedBy = "article")
     private List<Comment> comments;
 }
