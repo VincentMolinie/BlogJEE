@@ -70,7 +70,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-8">
-            <ui:repeat value="${article.getAll()}" var="art">
+            <ui:repeat value="${category.getArticles(param['id'])}" var="art">
                 <!-- Blog Post Content Column -->
 
                 <!-- Blog Post -->
@@ -117,9 +117,9 @@
                 <div class="media">
                     <div class="media-body">
                         <ui:repeat value="${art.comments}" var="com">
-                            <h4 class="media-heading">
-                                <small>${com.date}</small>
-                            </h4>
+                        <h4 class="media-heading">
+                            <small>${com.date}</small>
+                        </h4>
                             ${com.content}
                         </ui:repeat>
                     </div>
