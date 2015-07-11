@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.Collection;
 
 /**
@@ -31,6 +33,7 @@ public class CommentController implements Serializable {
     }
 
     public void add() throws IOException {
+        comment.setDate(new Date(Calendar.DATE));
         service.create(comment);
         comment = new Comment();
     }
