@@ -24,6 +24,13 @@ public class CategoryController implements Serializable {
 
     private Category category = new Category();
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Category get() {
         int id = category.getId();

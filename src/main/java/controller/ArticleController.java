@@ -28,6 +28,14 @@ public class ArticleController implements Serializable {
     private Integer categoryid = new Integer(0);
     private Article article = new Article();
 
+    public Integer getCategoryid() {
+        return categoryid;
+    }
+
+    public void setCategoryid(Integer categoryid) {
+        this.categoryid = categoryid;
+    }
+
     public void setUserid(Integer userid) {
         this.userid = userid;
     }

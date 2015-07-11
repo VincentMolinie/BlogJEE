@@ -70,7 +70,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-8">
-            <c:forEach items="${article.getAll()}" var="art">
+            <ui:repeat value="${article.getAll()}" var="art">
                 <!-- Blog Post Content Column -->
 
                 <!-- Blog Post -->
@@ -105,7 +105,7 @@
                         <div class="form-group">
                             <h:inputTextarea value="${comment.comment.content}" class="form-control" rows="3"></h:inputTextarea>
                         </div>
-                        <h:commandButton value="Submit" type="submit" class="btn btn-primary"/>
+                        <h:commandButton value="Submit" type="submit" class="btn btn-primary" action="${comment.add(art.id)}"/>
                     </h:form>
                 </div>
 
@@ -124,7 +124,7 @@
                         </ui:repeat>
                     </div>
                 </div>
-            </c:forEach>
+            </ui:repeat>
         </div>
 
 

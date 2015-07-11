@@ -1,6 +1,8 @@
 package controller;
 
+import entity.Article;
 import entity.Comment;
+import entity.User;
 import service.Service;
 
 import javax.faces.view.ViewScoped;
@@ -22,7 +24,15 @@ public class CommentController implements Serializable {
     Service service;
 
     private Comment comment = new Comment();
+    private Integer userid = new Integer(1);
 
+    public Comment getComment() {
+        return comment;
+    }
+
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
 
     public Comment get() {
         if (comment.getId() == null)
@@ -32,7 +42,11 @@ public class CommentController implements Serializable {
         return service.find(Comment.class, comment.getId());
     }
 
-    public void add() throws IOException {
+    public void add(int id) throws IOException {
+        Article article = service.find(Article.class, id);
+        User user = service.find(User.class, userid);
+        comment.setUser(user);
+        comment.setArticle(article);
         comment.setDate(new Date(Calendar.DATE));
         service.create(comment);
         comment = new Comment();

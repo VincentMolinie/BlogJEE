@@ -21,6 +21,14 @@ public class UserController implements Serializable {
 
     private User user = new User();
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public User get() {
         int id = user.getId();
         user = new User();
