@@ -19,7 +19,9 @@
                         <!-- Username -->
                         <label class="control-label"  for="username">Username</label>
                         <div class="controls">
-                            <h:inputText type="text" id="username" name="username" placeholder="" class="form-control" value="${user.user.username}"/>
+                            <h:inputText type="text" id="username" name="username" placeholder="" class="form-control" value="${user.user.username}">
+                                <f:validateLength minimum="4"/>
+                            </h:inputText>
                         </div>
                     </div>
 
@@ -27,7 +29,9 @@
                         <!-- E-mail -->
                         <label class="control-label" for="email">E-mail</label>
                         <div class="controls">
-                            <h:inputText type="text" id="email" name="email" placeholder="" class="form-control"  value="${user.user.email}"/>
+                            <h:inputText type="text" id="email" name="email" placeholder="" class="form-control"  value="${user.user.email}">
+                                <f:validateLength minimum="5"/>
+                            </h:inputText>
                         </div>
                     </div>
 
@@ -35,7 +39,9 @@
                         <!-- Password-->
                         <label class="control-label" for="password">Password</label>
                         <div class="controls">
-                            <h:inputSecret type="password" id="password" name="password" placeholder="" class="form-control" value="${user.user.password}"/>
+                            <h:inputSecret type="password" id="password" name="password" placeholder="" class="form-control" value="${user.user.password}">
+                                <f:validateLength minimum="5"/>
+                            </h:inputSecret>
                         </div>
                     </div>
 
