@@ -1,9 +1,10 @@
 package controller;
 
-import dao.UserDAO;
 import entity.User;
 import service.Login;
 import service.UserService;
+import tools.HashGenerateException;
+import tools.PasswordHelper;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -51,10 +52,9 @@ public class LoginController implements Serializable {
         this.login = login;
     }
 
-    public void SignIn()
-    {
+    public void SignIn() throws HashGenerateException {
         User user = userService.findByUsername(username);
-        boolean valid = (password.equals(user.getPassword()));
+        boolean valid = PasswordHelper.compareHash(password, user.getPassword());
         FacesContext context = FacesContext.getCurrentInstance();
 
         if (valid)

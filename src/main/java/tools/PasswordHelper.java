@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
  * Created by F on 11/07/2015.
  */
 public class PasswordHelper {
-    public String generate(String input) throws HashGenerateException {
+    public static String generate(String input) throws HashGenerateException {
         String hash = null;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
@@ -24,7 +24,7 @@ public class PasswordHelper {
         return hash;
     }
 
-    public Boolean compareHash(String input, String hashedInput) throws HashGenerateException {
+    public static Boolean compareHash(String input, String hashedInput) throws HashGenerateException {
         String hInput = generate(input);
 
         return (hInput != null && hInput.equals(hashedInput));
