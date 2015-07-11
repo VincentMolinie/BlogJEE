@@ -3,12 +3,14 @@ package service;
 import dao.UserDAO;
 import entity.User;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 /**
  * Created by vince on 7/11/15.
  */
-public class UserService extends Service {
+@ApplicationScoped
+public class UserService {
     @Inject
     private UserDAO dao;
 
