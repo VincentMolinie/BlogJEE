@@ -62,14 +62,18 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <h:link value="Login" outcome="login" />
-                </li>
+                <c:if test="${empty sessionScope.username}">
+                    <li>
+                        <h:link value="Login" outcome="login" />
+                    </li>
+                </c:if>
+                <c:if test="${not empty sessionScope.username}">
+                    <li>
+                        <h:link value="Logout" />
+                    </li>
+                </c:if>
                 <li>
                     <h:link value="Register" outcome="register" />
-                </li>
-                <li>
-                    <h:link value="Logout" />
                 </li>
             </ul>
         </div>
