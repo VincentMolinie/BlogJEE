@@ -5,7 +5,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <ui:define name="title">
-        Category
+        ${category.category.name} category
     </ui:define>
 
     <ui:define name="content">
@@ -14,9 +14,6 @@
         <div class="row">
             <div class="col-lg-8">
                 <ui:repeat value="${category.getArticles(param['id'])}" var="art">
-                    <!-- Blog Post Content Column -->
-
-                    <!-- Blog Post -->
 
                     <!-- Title -->
                     <h1>${art.title}</h1>
@@ -39,11 +36,23 @@
 
                     <hr></hr>
 
-                    <!-- Blog Comments -->
-
-                    <!-- Comments Form -->
                     <div class="well">
-                        <h4>Leave a Comment:</h4>
+                        <h3><h:outputText value="Comments" rendered="#{not empty art.comments}" /></h3>
+                        <!-- Comment -->
+                        <div class="media">
+                            <div class="media-body">
+                                <ui:repeat value="${art.comments}" var="com">
+                                    <h4 class="media-heading">
+                                        <small>${com.date}</small>
+                                    </h4>
+                                    ${com.content}
+                                </ui:repeat>
+                            </div>
+                        </div>
+
+                        <!-- Comments Form -->
+
+                        <h3>Leave a Comment:</h3>
                         <h:form role="form">
                             <div class="form-group">
                                 <h:inputTextarea value="${comment.comment.content}" class="form-control" rows="3"></h:inputTextarea>
@@ -54,40 +63,13 @@
 
                     <hr></hr>
 
-                    <!-- Posted Comments -->
-
-                    <!-- Comment -->
-                    <div class="media">
-                        <div class="media-body">
-                            <ui:repeat value="${art.comments}" var="com">
-                                <h4 class="media-heading">
-                                    <small>${com.date}</small>
-                                </h4>
-                                ${com.content}
-                            </ui:repeat>
-                        </div>
-                    </div>
                 </ui:repeat>
             </div>
 
 
+
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control"/>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
-
                 <!-- Blog Categories Well -->
                 <div class="well">
                     <h4>Blog Categories</h4>

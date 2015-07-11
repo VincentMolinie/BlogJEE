@@ -19,7 +19,7 @@
                         <!-- Username -->
                         <label class="control-label"  for="username">Username</label>
                         <div class="controls">
-                            <h:inputText type="text" id="username" name="username" placeholder="" class="form-control" />
+                            <h:inputText type="text" id="username" name="username" placeholder="" class="form-control" value="${user.user.username}"/>
                         </div>
                     </div>
 
@@ -27,7 +27,7 @@
                         <!-- E-mail -->
                         <label class="control-label" for="email">E-mail</label>
                         <div class="controls">
-                            <h:inputText type="text" id="email" name="email" placeholder="" class="form-control" />
+                            <h:inputText type="text" id="email" name="email" placeholder="" class="form-control"  value="${user.user.email}"/>
                         </div>
                     </div>
 
@@ -35,14 +35,16 @@
                         <!-- Password-->
                         <label class="control-label" for="password">Password</label>
                         <div class="controls">
-                            <h:inputText type="password" id="password" name="password" placeholder="" class="form-control" />
+                            <h:inputText type="password" id="password" name="password" placeholder="" class="form-control" value="${user.user.password}"/>
                         </div>
                     </div>
 
                     <div class="control-group">
                         <!-- Button -->
                         <div class="controls">
-                            <h:commandButton class="btn btn-success form-control" value="Register" action="user.add()"></h:commandButton>
+                            <h:commandButton class="btn btn-success form-control" value="Register" action="index">
+                                <f:actionListener binding="${user.add()}" />
+                            </h:commandButton>
                         </div>
                     </div>
                 </fieldset>
