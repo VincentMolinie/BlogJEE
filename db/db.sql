@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2015 at 09:46 AM
+-- Generation Time: Jul 11, 2015 at 09:50 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `blogdb`
 --
+CREATE DATABASE IF NOT EXISTS `blogdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `blogdb`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `article`
 --
 
+DROP TABLE IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (
   `id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
@@ -50,6 +53,7 @@ INSERT INTO `article` (`id`, `title`, `content`, `user_id`, `date`) VALUES
 -- Table structure for table `category`
 --
 
+DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -62,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 -- Table structure for table `comment`
 --
 
+DROP TABLE IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL,
   `content` text NOT NULL,
@@ -83,6 +88,7 @@ INSERT INTO `comment` (`id`, `content`, `date`, `user_id`, `article_id`) VALUES
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
