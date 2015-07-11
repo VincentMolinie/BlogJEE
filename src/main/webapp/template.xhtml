@@ -69,7 +69,7 @@
                 </c:if>
                 <c:if test="${not empty sessionScope.username}">
                     <li>
-                        <h:link value="Logout" />
+                        <h:commandButton value="Logout" action="login.logout()"/>
                     </li>
                 </c:if>
                 <li>
