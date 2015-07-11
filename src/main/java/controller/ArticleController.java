@@ -59,7 +59,7 @@ public class ArticleController implements Serializable {
     public void add() throws IOException {
         User user = service.find(User.class, userid);
         Category category = service.find(Category.class, categoryid);
-        article.setDate(new Date(Calendar.DATE));
+        article.setDate(new Date(System.currentTimeMillis()));
         article.setUser(user);
         article.setCategory(category);
         service.create(article);

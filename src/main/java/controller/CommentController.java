@@ -47,7 +47,7 @@ public class CommentController implements Serializable {
         User user = service.find(User.class, userid);
         comment.setUser(user);
         comment.setArticle(article);
-        comment.setDate(new Date(Calendar.DATE));
+        comment.setDate(new Date(System.currentTimeMillis()));
         service.create(comment);
         comment = new Comment();
     }
