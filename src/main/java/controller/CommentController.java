@@ -11,8 +11,7 @@ import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.Calendar;
-import java.util.Collection;
+import java.util.*;
 
 /**
  * Created by vince on 7/11/15.
@@ -25,6 +24,8 @@ public class CommentController implements Serializable {
 
     private Comment comment = new Comment();
     private Integer userid = new Integer(1);
+
+
 
     public Comment getComment() {
         return comment;
@@ -42,7 +43,7 @@ public class CommentController implements Serializable {
         return service.find(Comment.class, comment.getId());
     }
 
-    public void add(int id) throws IOException {
+    public void add(int id) {
         Article article = service.find(Article.class, id);
         User user = service.find(User.class, userid);
         comment.setUser(user);
@@ -63,6 +64,13 @@ public class CommentController implements Serializable {
     }
 
     public Collection<Comment> getAll() {
-        return service.findAll(Comment.class);
+        ArrayList<Comment> comments = new ArrayList<>(service.findAll(Comment.class));
+        Collections.sort(comments, new Comparator<Comment>() {
+            @Override
+            public int compare(Comment o2, Comment o1) {
+                return o1.getId().compareTo(o2.getId());
+            }
+        });
+        return comments;
     }
 }
