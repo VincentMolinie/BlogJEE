@@ -1,3 +1,8 @@
+.navbar-brand {
+    font-weight:800;
+    font-size: 1.5em;
+    font-family: "Open Sans";
+}
 body {
     font-family:Lora,'Times New Roman',serif;
     font-size:20px;
@@ -43,7 +48,8 @@ hr.small {
     font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif
 }
 .navbar-custom .navbar-brand {
-    font-weight:800
+    font-weight:800;
+    font-family: "Open Sans";
 }
 .navbar-custom .nav li a {
     text-transform:uppercase;
