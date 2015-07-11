@@ -1,7 +1,6 @@
 package controller;
 
 import entity.User;
-import service.Login;
 import service.UserService;
 import tools.HashGenerateException;
 import tools.PasswordHelper;
@@ -23,7 +22,6 @@ public class LoginController implements Serializable {
     @Inject
     private UserService userService;
 
-    private Login login = new Login();
     private String username;
     private String password;
 
@@ -43,33 +41,33 @@ public class LoginController implements Serializable {
         this.password = password;
     }
 
-
-    public Login getLogin() {
-        return login;
-    }
-
-    public void setLogin(Login login) {
-        this.login = login;
-    }
-
     public void SignIn() throws HashGenerateException {
-        User user = userService.findByUsername(username);
-        boolean valid = PasswordHelper.compareHash(password, user.getPassword());
         FacesContext context = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
 
-        if (valid)
+        if (session.getAttribute("username") == null)
         {
-            HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
-            session.setAttribute("username", username);
+            User user = userService.findByUsername(username);
+            boolean valid = PasswordHelper.compareHash(password, user.getPassword());
+
+            if (valid)
+            {
+                session.setAttribute("username", username);
+            }
+            else
+            {
+                context.addMessage(null, new FacesMessage("Incorrect identifiers", "Please enter correct identifiers"));
+            }
         }
         else
-        {
-            context.addMessage(null, new FacesMessage("Incorrect identifiers", "Please enter correct identifiers"));
-        }
+            logout();
+
     }
 
     public void logout()
     {
-        login.logout();
+        FacesContext context = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
+        session.invalidate();
     }
 }
