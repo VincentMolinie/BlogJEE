@@ -7,7 +7,6 @@ import javax.inject.Inject;
 /**
  * Created by F on 11/07/2015.
  */
-@ManagedBean
 @SessionScoped
 public class Login {
     @Inject

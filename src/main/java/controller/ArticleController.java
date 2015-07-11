@@ -13,10 +13,7 @@ import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * Created by vince on 7/11/15.
@@ -80,7 +77,13 @@ public class ArticleController implements Serializable {
     }
 
     public Collection<Article> getAll() {
-        Collection<Article> articles = new ArrayList<>(new HashSet<>(service.findAll(Article.class)));
+        ArrayList<Article> articles = new ArrayList<>(new HashSet<>(service.findAll(Article.class)));
+        Collections.sort(articles, new Comparator<Article>() {
+            @Override
+            public int compare(Article o2, Article o1) {
+                return o1.getId().compareTo(o2.getId());
+            }
+        });
         return articles;
     }
 

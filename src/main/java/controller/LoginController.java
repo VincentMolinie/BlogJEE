@@ -41,6 +41,7 @@ public class LoginController implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+    
 
     public Login getLogin() {
         return login;
@@ -60,12 +61,10 @@ public class LoginController implements Serializable {
         {
             HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
             session.setAttribute("username", username);
-            //return "postArticle";
         }
         else
         {
             context.addMessage(null, new FacesMessage("Incorrect identifiers", "Please enter correct identifiers"));
-            //return "login";
         }
     }
 
