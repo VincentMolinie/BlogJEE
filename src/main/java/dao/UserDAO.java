@@ -3,7 +3,6 @@ package dao;
 import entity.User;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -16,6 +15,7 @@ public class UserDAO {
     private EntityManager entityManager;
 
     public User findByUsername(String username) {
-        return (User) entityManager.createQuery("from user where user.username == " + username).getSingleResult();
+
+        return (User) entityManager.createQuery("select u from User u where u.username like '" + username + "'").getSingleResult();
     }
 }
