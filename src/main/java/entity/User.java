@@ -30,9 +30,9 @@ public class User implements Model {
     private String email;
 
     @XmlTransient
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Article> articles;
     @XmlTransient
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Comment> comments;
 }

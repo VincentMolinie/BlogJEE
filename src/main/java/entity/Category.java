@@ -26,6 +26,6 @@ public class Category implements Model {
     private String name;
 
     @XmlTransient
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Article> articles;
 }

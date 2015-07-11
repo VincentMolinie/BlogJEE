@@ -39,6 +39,6 @@ public class Article implements Model {
     private Category category;
 
     @XmlTransient
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "article", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Comment> comments;
 }
