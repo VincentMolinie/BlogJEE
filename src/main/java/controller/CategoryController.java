@@ -32,7 +32,7 @@ public class CategoryController implements Serializable {
     }
 
     public List<Article> getArticles() {
-        Category selectedCategory = getCategory();
+        Category selectedCategory = get();
         return selectedCategory.getArticles();
     }
 
