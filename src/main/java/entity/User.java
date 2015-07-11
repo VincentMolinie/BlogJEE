@@ -7,7 +7,10 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by vince on 7/11/15.
@@ -31,8 +34,16 @@ public class User implements Model {
 
     @XmlTransient
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Article> articles;
+    private Set<Article> articles;
     @XmlTransient
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Comment> comments;
+    private Set<Comment> comments;
+
+    public Collection<Article> getArticles() {
+        return new ArrayList<>(articles);
+    }
+
+    public Collection<Comment> getComments() {
+        return new ArrayList<>(comments);
+    }
 }

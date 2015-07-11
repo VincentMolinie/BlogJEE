@@ -38,7 +38,7 @@ public class CategoryController implements Serializable {
         return service.find(Category.class, category.getId());
     }
 
-    public List<Article> getArticles() {
+    public Collection<Article> getArticles() {
         Category selectedCategory = get();
         return selectedCategory.getArticles();
     }
