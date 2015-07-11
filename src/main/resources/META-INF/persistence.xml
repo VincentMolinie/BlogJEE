@@ -2,5 +2,15 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
     <persistence-unit name="jpaUnit" transaction-type="JTA">
         <jta-data-source>jdbc/blog</jta-data-source>
+        
+        <class>entity.Model</class>
+        <class>entity.User</class>
+        <class>entity.Article</class>
+        <class>entity.Category</class>
+        <class>entity.Comment</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"></property>
+        </properties>
     </persistence-unit>
 </persistence>
