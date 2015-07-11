@@ -66,7 +66,7 @@ public class LoginController implements Serializable {
 
     }
 
-    public void logout() {
+    public String logout() {
         FacesContext context = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
         session.invalidate();
@@ -75,5 +75,6 @@ public class LoginController implements Serializable {
             ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
         } catch (Exception e) {
         }
+        return "logout";
     }
 }
