@@ -2,7 +2,8 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:ui="http://java.sun.com/jsf/facelets">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <ui:define name="title">
         Home
@@ -26,15 +27,12 @@
                     <!-- Date/Time -->
                     <p><span class="glyphicon glyphicon-time"></span> Posted on ${art.date}</p>
 
-
                     <hr></hr>
 
                     <!-- Post Content -->
                     <p>${art.content}</p>
 
                     <hr></hr>
-
-                    <!-- Blog Comments -->
 
                     <!-- Comments Form -->
                     <div class="well">
@@ -49,8 +47,7 @@
 
                     <hr></hr>
 
-                    <!-- Posted Comments -->
-
+                    <h3><h:outputText value="Comments" rendered="#{not empty art.comments}" /></h3>
                     <!-- Comment -->
                     <div class="media">
                         <div class="media-body">
@@ -62,27 +59,13 @@
                             </ui:repeat>
                         </div>
                     </div>
+
                 </ui:repeat>
             </div>
 
 
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control"/>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
-
                 <!-- Blog Categories Well -->
                 <div class="well">
                     <h4>Blog Categories</h4>

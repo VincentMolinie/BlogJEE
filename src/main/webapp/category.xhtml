@@ -5,7 +5,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <ui:define name="title">
-        Category
+        ${category.category.name} category
     </ui:define>
 
     <ui:define name="content">
@@ -14,9 +14,6 @@
         <div class="row">
             <div class="col-lg-8">
                 <ui:repeat value="${category.getArticles(param['id'])}" var="art">
-                    <!-- Blog Post Content Column -->
-
-                    <!-- Blog Post -->
 
                     <!-- Title -->
                     <h1>${art.title}</h1>
@@ -39,8 +36,6 @@
 
                     <hr></hr>
 
-                    <!-- Blog Comments -->
-
                     <!-- Comments Form -->
                     <div class="well">
                         <h4>Leave a Comment:</h4>
@@ -55,7 +50,7 @@
                     <hr></hr>
 
                     <!-- Posted Comments -->
-
+                    <h3><h:outputText value="Comments" rendered="#{not empty art.comments}" /></h3>
                     <!-- Comment -->
                     <div class="media">
                         <div class="media-body">
@@ -73,21 +68,6 @@
 
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control"/>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
-
                 <!-- Blog Categories Well -->
                 <div class="well">
                     <h4>Blog Categories</h4>
