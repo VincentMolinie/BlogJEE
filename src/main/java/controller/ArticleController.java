@@ -2,6 +2,7 @@ package controller;
 
 
 import entity.Article;
+import entity.Category;
 import entity.User;
 import service.Service;
 
@@ -24,6 +25,7 @@ public class ArticleController implements Serializable {
     Service service;
 
     private Integer userid = new Integer(1);
+    private Integer categoryid = new Integer(0);
     private Article article = new Article();
 
     public void setUserid(Integer userid) {
@@ -46,8 +48,10 @@ public class ArticleController implements Serializable {
 
     public void add() throws IOException {
         User user = service.find(User.class, userid);
+        Category category = service.find(Category.class, categoryid);
         article.setDate(new Date(Calendar.DATE));
         article.setUser(user);
+        article.setCategory(category);
         service.create(article);
         article = new Article();
     }
